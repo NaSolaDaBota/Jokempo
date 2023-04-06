@@ -15,29 +15,33 @@ const loser = document.getElementById("loser")
 var player1 = ""
 var player2 = ""
 
+//analisa e quando der um click no botao "jogar" ele executa as duas funçoes
 playing.addEventListener("click", () => {
     reset()
     playPc()
 })
 
+//pega o botao escolhido pelo user e muda a img
 function reset() {
     player1 = document.querySelector('input[name="play"]:checked').value
-    imgUser.innerHTML = "<img src='img/" + player1 + ".png'>"
+    imgUser.innerHTML = "<img src='img/" + player1 + ".png'>" //concatena a pasta com o "valor" escolhido formando a img
     imgPC.innerHTML = ""
 }
 
 function playPc() {
-    let opt = ['rock', 'paper', 'scissor']
-    let num = Math.floor(Math.random() * (2 - 0 + 1)) + 0;
-    player2 = opt[num]
-    imgPC.innerHTML = "<img src='img/" + player2 + ".png'>"
+    let opt = ['rock', 'paper', 'scissor'] //[0,1,2]
+    let num = Math.floor(Math.random() * (2 - 0 + 1)) + 0; //sorteia um numero de 0 a 2
+    player2 = opt[num] //pega o nome sorteado
+    imgPC.innerHTML = "<img src='img/" + player2 + ".png'>" //concatena a pasta com o "valor" escolhido formando a img
     analyze()
 }
 
+//verifica o resultado
 function analyze() {
 
     playing.disabled = true
 
+    //0=empate, 1=vitoria, -1 derrota
     let win = "0"
 
     if (player1 == player2) {
@@ -60,25 +64,22 @@ function analyze() {
 
         contador.innerHTML = contUser + ":" + contPc
 
+        //se o user chegar a 5, remove o none e add o center no html
         if (contUser >= 5) {
             winner.classList.remove('none')
             winner.classList.add('center')
         }
 
+        //se o pc chegar a 5, remove o none e add o center no html
         if (contPc >= 5) {
             loser.classList.remove('none')
             loser.classList.add('center')
         }
 
+        //habilita o botao "jogar" novamente
         setTimeout(() => {
             playing.disabled = false
-            clear();
         },1000)
-}
-
-function clear() {
-    imgPC.innerHTML = ""
-    imgUser.innerHTML = ""
 }
 
 function newGame() {
