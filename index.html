@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>JOKEMPÔ</title>
+
+</head>
+<body>
+    <div id="game" class="container">
+        <h1>PEDRA, PAPEL, TESOURA</h1>
+        <div class="bloco">
+            <div class="label bg-blue">P1</div>
+            <div class="label bg-red">PC</div>
+            <div id="contador" class="placar">0:0</div>
+        </div>
+        <div class="bloco bg-grey selected-img">
+            <div id="user">
+                <img src="./img/rock.png">  
+            </div>
+            <div id="pc" class="reverse"></div>
+        </div>
+        <h2>Pedra,Papel ou Tesoura?</h2>
+        <div class="buttons">
+            <label>
+                <input type="radio" onclick="reset()" name="play" value="rock" checked>
+                <button class="btn"><img src="./img/rock.png"></button>
+            </label>
+            <label>
+                <input type="radio" onclick="reset()" name="play" value="paper">
+                <button class="btn"><img src="./img/paper.png"></button>
+            </label>
+            <label>
+                <input type="radio" onclick="reset()" name="play" value="scissor">
+                <button class="btn"><img src="./img/scissor.png"></button>
+            </label>
+        </div>
+
+        <div class="bloco">
+            <button id="playing" class="btn-play">Jogar</button>
+        </div>
+
+    </div>
+
+    <div id="winner" class="container result none">
+        <h3>VOCÊ GANHOU!</h3>
+        <span>
+            <img src="./img/premio-unscreen.gif" height="50" width="50">
+            <img src="./img/premio-unscreen.gif" height="50" width="50">
+            <img src="./img/premio-unscreen.gif" height="50" width="50">
+        </span>
+        <button onclick="newGame()">De Novo?</button>
+    </div>
+
+    <div id="loser" class="container result none">
+        <h3>VOCÊ PERDEU!</h3>
+        <span>
+            <img src="./img/triste-unscreen.gif" alt="" height="50" width="50">
+            <img src="./img/triste-unscreen.gif" alt="" height="50" width="50">
+            <img src="./img/triste-unscreen.gif" alt="" height="50" width="50">
+        </span>
+        <button onclick="newGame()">De Novo?</button>
+    </div>
+    
+<script src="./script.js"></script>
+</body>
+</html>
